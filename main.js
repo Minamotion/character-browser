@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const code = gen.next().value
 			if (typeof code !== "undefined") {
 				const hexCode = padString(code.toString(16).toUpperCase(), 4)
-				contents.push(`<div class="basic centered shell${location.hash===`0x${hexCode}`?" highlighted":""}" id="0x${hexCode}"><p><code>0x${hexCode}</code></p><button class="basic character" onclick="this.disabled = true; copy(String.fromCharCode(${code})).then(()=>{this.disabled = false})">${String.fromCharCode(code)}</button></div>`)
+				contents.push(`<div class="basic centered shell${location.hash===`#0x${hexCode}`?" highlighted":""}" id="0x${hexCode}"><p><code>0x${hexCode}</code></p><button class="basic character" onclick="this.disabled = true; copy(String.fromCharCode(${code})).then(()=>{this.disabled = false})">${String.fromCharCode(code)}</button></div>`)
 			}
 		}
 		if (contents.length == 0) {
