@@ -7,7 +7,7 @@ body {
 }
 
 hr {
-	border: #1f1f1f solid .1px;
+	border: #000000 solid .1px;
 }
 
 .shell {
@@ -20,11 +20,6 @@ hr {
 .character {
 	font-size: 2em;
 	margin: 0;
-}
-
-.character.highlighted {
-	background-color: #ffff80;
-	font-weight: bolder;
 }
 
 .container {
@@ -48,12 +43,19 @@ hr {
 }
 
 .basic {
-	border: #1f1f1f solid 1px;
+	border: #000000 solid 1px;
 	padding: 8px;
 	margin: 8px;
 	text-align: center;
 	background: #eeeeee;
 	border-radius: 4px;
+}
+
+.highlighted {
+	background-color: #ffff80;
+	color: #404000;
+	border-color: #808000;
+	font-weight: bolder;
 }
 
 button:enabled {
