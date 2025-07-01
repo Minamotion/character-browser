@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	/**
 	 * How many pages can fit an entire set of characters? *(65535 to be exact)*
 	 */
-	const maxPageNum = Math.round((65535) / pageSize)
+	const maxPageNum = Math.round(65535 / pageSize)
 
 	/**
 	 * Keeps track of the current page
@@ -47,10 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		let contents = []
 		let gen = allCharacters(page * pageSize)
 		for (let i = 0; i <= pageSize; i++) {
-			let code = gen.next().value
-			let hexCode = padString(code.toString(16).toUpperCase(), 4)
+			const code = gen.next().value
 			if (typeof code !== "undefined") {
-				contents.push(`<div class="basic centered shell" id="0x${hexCode}"><p><code>0x${hexCode}</code></p><button class="basic character" onclick="this.disabled = true; copy(String.fromCharCode(${code})).then(()=>{this.disabled = false})">${String.fromCharCode(code)}</button></div>`)
+				const hexCode = padString(code.toString(16).toUpperCase(), 4)
+				contents.push(`<div class="basic centered shell${location.hash===`0x${hexCode}`?" highlighted":""}" id="0x${hexCode}"><p><code>0x${hexCode}</code></p><button class="basic character" onclick="this.disabled = true; copy(String.fromCharCode(${code})).then(()=>{this.disabled = false})">${String.fromCharCode(code)}</button></div>`)
 			}
 		}
 		if (contents.length == 0) {
@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			PrevPageButton.disabled = NextPageButton.disabled = true
 			generatePage(++curPage)
 		} else {
+			// This code will never execute unless NextPageButton happens to be enabled
 			alert("Maximum Page Reached")
 		}
 	})
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			PrevPageButton.disabled = NextPageButton.disabled = true
 			generatePage(--curPage)
 		} else {
-			// This code will never execute unless PrevPageButton happens to be 
+			// This code will never execute unless PrevPageButton happens to be enabled
 			alert("Minimum Page Reached")
 		}
 	})
