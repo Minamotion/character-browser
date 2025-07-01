@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="ANSI" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Character Browser</title>
+		<link rel="stylesheet" href="main.css" />
+		<script src="exposed.js"></script>
+		<script src="main.js" type="module"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="basic">
+				<h1>Character Browser</h1>
+				<hr/>
+				<p>Made by <a href="https://minamotion.name/">Minamotion</a></p>
+				<div class="basic">
+					<button id="prevpage-btn" class="basic">Previous page</button>
+					<span id="curpage-span">Page <b>null</b></span>
+					<button id="nextpage-btn" class="basic">Next page</button>
+					<br>
+					<input id="page-input" type="number" min="1" max="10" value="1" class="basic">
+					<button id="setpage-btn" class="basic">Go to page</button>
+				</div>
+			</div>
+			<div id="browser" class="basic grid">
+				Can you see me?
+			</div>
+		</div>
+	</body>
+</html>
