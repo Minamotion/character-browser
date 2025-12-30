@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	const pageSize = (params.has("items") && isParseableInt(params.get("items")) && Number.parseInt(params.get("items")) >= 2) ? Number.parseInt(params.get("items") -1) : 32
 
 	/**
-	 * How many pages can fit an entire set of characters? *(65535 to be exact)*
+	 * How many pages can fit an entire set of characters? *(1114111 to be exact)*
 	 */
-	const maxPageNum = Math.round(65535 / pageSize)
+	const maxPageNum = Math.round(1114111 / pageSize)
 
 	/**
 	 * Keeps track of the current page
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			const code = gen.next().value
 			if (typeof code !== "undefined") {
 				const hexCode = padString(code.toString(16).toUpperCase(), 4)
-				contents.push(`<div class="basic centered shell${location.hash===`#0x${hexCode}`?" highlighted":""}" id="0x${hexCode}"><p><code>0x${hexCode}</code></p><button class="basic character" onclick="this.disabled = true; copy(String.fromCharCode(${code})).then(()=>{this.disabled = false})">${String.fromCharCode(code)}</button></div>`)
+				contents.push(`<div class="basic centered shell${location.hash===`#0x${hexCode}`?" highlighted":""}" id="0x${hexCode}"><p><code>0x${hexCode}</code></p><button class="basic character" onclick="this.disabled = true; copy(String.fromCodePoint(${code})).then(()=>{this.disabled = false})">${String.fromCodePoint(code)}</button></div>`)
 			}
 		}
 		if (contents.length == 0) {

@@ -13,7 +13,7 @@ async function copy(text) {
  * @returns {Generator<number>} A character code inside `.next().value`
  */
 function* allCharacters(first = 0) {
-	for (let i = (first > 0) ? first : 1; i <= 65535; i++) {
+	for (let i = (first > 0) ? first : 1; i <= 1114111; i++) {
 		yield i
 	}
 }
